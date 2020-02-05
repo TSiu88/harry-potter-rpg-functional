@@ -2,6 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 // import $ from 'jquery';
-// import { Game } from './game.js'
+// import { Duel } from './duel.js';
+// import { Character } from './character.js';
 
 

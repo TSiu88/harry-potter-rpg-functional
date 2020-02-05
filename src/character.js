@@ -29,17 +29,19 @@ export class Character {
   
   levelUp(){
     this.level++;
-    this.health = 2 * this.level;
+    this.resetHealth();
   }
 
   castSpell(){
     let num = (Math.floor(Math.random() * this.spells.length));
-    console.log(num);
     return this.spells[num];
   }
 
-  takesDamage(hitAmount){
+  takeDamage(hitAmount){
     this.health -= hitAmount;
   }
 
+  resetHealth(){
+    this.health = 2 * this.level;
+  }
 }

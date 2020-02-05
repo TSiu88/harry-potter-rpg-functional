@@ -20,6 +20,17 @@ describe('Character', () => {
     expect(gryffindorTraits).toContain(character.personality);
   });
 
+  test('should correctly decrease character\'s health by inputted damage amount', () => {
+    character.takeDamage(1);
+    expect(character.health).toEqual(1);
+  });
+
+  test('should reset health correctly to max health amount', () => {
+    character.takeDamage(1);
+    character.resetHealth();
+    expect(character.health).toEqual(2);
+  });
+
   test('should increase level and health correctly when character levels up', () => {
     character.levelUp();
     expect(character.level).toEqual(2);
@@ -27,12 +38,8 @@ describe('Character', () => {
   });
 
   test('should correctly select random spell from character\'s spell list', () => {
-    let spell =  character.castSpell();
+    let spell = character.castSpell();
     expect(character.spells).toContain(spell);
   });
 
-  test('should correctly decrease character\'s health by inputted damage amount', () => {
-    character.takesDamage(1);
-    expect(character.health).toEqual(1);
-  });
 });
