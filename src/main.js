@@ -2,7 +2,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-//import { Duel } from './duel.js';
 import { Character } from './character.js';
 import { Duel } from './duel';
 
@@ -25,7 +24,7 @@ function displayStats(character1, character2) {
 function displayTurn(duel) {
   let turnChar = duel.characters[duel.turn];
   $("#duel-status").text(`${turnChar.name}'s Turn`);
-  if (turnChar === character1) {
+  if (turnChar === duel.characters[0]) {
     $("#character2-buttons button").attr("disabled", true);
   } else {
     $("#character1-buttons button").attr("disabled", true);
@@ -65,8 +64,7 @@ $(document).ready(function(){
     $("#attack-buttons").show();
     $("#start-duel").hide();
     duel = new Duel(character1, character2);
-    displayTurn();
-
+    displayTurn(duel);
 
   });
 

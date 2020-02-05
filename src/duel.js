@@ -5,27 +5,18 @@ export class Duel {
     this.turn = (Math.floor(Math.random() * this.characters.length));
   }
 
-  attack(attackerName){
-    let attacker;
-    let defender;
-    if (this.characters[0].name == attackerName){
-      attacker = this.characters[0];
-      defender = this.characters[1];
-    } else{
-      attacker = this.characters[1];
-      defender = this.characters[0];
-    }
+  attack(attacker, defender){
     let spell = attacker.castSpell();
     if (spell === "hit"){
       defender.takeDamage(attacker.level);
-      if (this.checkForWinner(defender, attacker)){
+      if (this.checkForWinner(attacker, defender)){
         this.endDuel();
       }
     }
     this.switchTurn();
   }
 
-  checkForWinner(defender, attacker){
+  checkForWinner(attacker, defender){
     if (defender.health <= 0){
       this.winner = attacker;
       return true;

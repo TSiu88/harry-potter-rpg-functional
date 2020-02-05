@@ -21,7 +21,7 @@ describe('Duel', () => {
 
   test('should set duel winner property equal to current winner', () => {
     character2.health = 0;
-    duel.checkForWinner(character2, character1);
+    duel.checkForWinner(character1, character2);
     expect(duel.winner).toEqual(character1);
   });
 
@@ -42,14 +42,14 @@ describe('Duel', () => {
   });
 
   test('should decrease health of defending character when attack hits', () => {
-    duel.attack(character1.name);
+    duel.attack(character1, character2);
     let possibleRemainingHealth = [1, 2];
     expect(possibleRemainingHealth).toContain(character2.health);
   });
 
   test('should level up winning character when attack kills opposition', () => {
-    duel.attack(character1.name);
-    duel.attack(character1.name);
+    duel.attack(character1, character2);
+    duel.attack(character1, character2);
     let possibleCharacter1Levels = [1, 2];
     expect(possibleCharacter1Levels).toContain(character1.level);
   });
