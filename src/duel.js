@@ -22,6 +22,7 @@ export class Duel {
         this.endDuel();
       }
     }
+    this.switchTurn();
   }
 
   checkForWinner(defender, attacker){
@@ -43,6 +44,14 @@ export class Duel {
     if (this.winner){
       this.winner.levelUp();
       this.resetWinner();
+    }
+  }
+
+  switchTurn() {
+    if (this.turn === 0) {
+      this.turn = 1;
+    } else {
+      this.turn = 0;
     }
   }
 }

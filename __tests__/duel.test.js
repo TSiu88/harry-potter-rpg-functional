@@ -54,4 +54,16 @@ describe('Duel', () => {
     expect(possibleCharacter1Levels).toContain(character1.level);
   });
 
+  test('should correctly alternate turns', () => {
+    let startTurn = duel.turn;
+    let expectedTurn;
+    if (startTurn === 0) {
+      expectedTurn = 1;
+    } else {
+      expectedTurn = 0;
+    }
+    duel.switchTurn();
+    expect(duel.turn).toEqual(expectedTurn);
+  });
+
 });
