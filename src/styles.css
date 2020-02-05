@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid yellow;
+}
+
+#duel-display {
+  border: 1px solid red;
+  width: 100%;
+  min-height: 400px;
+}
+
+#bottom-display {
+  width: 100%;
+}
+
+#character-creation {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -4,7 +4,72 @@
     <title>TITLE</title>
   </head>
   <body>
-    <h1>THIS IS A HEADER</h1>
-    <p>THIS IS A PARAGRAPH</p>
+    <div class="container">
+      <h1>Wizard Duel</h1>
+      <div id="duel-display">
+        <div class="character-img" id="character1-img"></div>
+        <div id="duel-status"></div>
+        <div class="character-img" id="character2-img"></div>
+      </div>
+      <div id="bottom-display">
+        <form>
+          <div id="character-creation">
+            <div id="character1-creation">
+              <div class="form-group">
+                <label for="character1-name">Player 1 Name:</label>
+                <input id="character1-name" type="text" required>
+              </div>
+              <div class="form-group">
+                <label for="character1-house">Player 1 House:</label>
+                <select id="character1-house">
+                  <option value="gryffindor">Gryffindor</option>
+                  <option value="hufflepuff">Hufflepuff</option>
+                  <option value="ravenclaw">Ravenclaw</option>
+                  <option value="slytherin">Slytherin</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="gender">Player 1 Gender:</label>
+                <input name="gender" type="radio" value="male" checked> Male
+                <input name="gender" type="radio" value="female"> Female
+              </div>
+            </div>
+
+            <div id="character2-creation">
+              <div class="form-group">
+                <label for="character2-name">Player 2 Name:</label>
+                <input id="character2-name" type="text" required>
+              </div>
+              <div class="form-group">
+                <label for="character2-house">Player 2 House:</label>
+                <select id="character2-house">
+                  <option value="gryffindor">Gryffindor</option>
+                  <option value="hufflepuff">Hufflepuff</option>
+                  <option value="ravenclaw">Ravenclaw</option>
+                  <option value="slytherin">Slytherin</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="gender">Player 2 Gender:</label>
+                <input name="gender" type="radio" value="male" checked> Male
+                <input name="gender" type="radio" value="female"> Female
+              </div>
+            </div>
+          </div>
+          <button type="submit" id="create-btn" class="btn btn-info"> Create Characters! </button>
+        </form>
+        
+        <div id="stats-display">
+          <div id="character1-stats"></div>
+          <div id="character2-stats"></div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
   </body>
 </html>

@@ -15,6 +15,8 @@ describe('Duel', () => {
   test('should correctly create duel with two given characters', () => {
     expect(duel.characters).toEqual([character1, character2]);
     expect(duel.winner).toEqual(null);
+    let possibleTurns = [0, 1];
+    expect(possibleTurns).toContain(duel.turn);
   });
 
   test('should set duel winner property equal to current winner', () => {

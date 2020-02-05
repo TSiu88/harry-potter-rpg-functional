@@ -2,6 +2,7 @@ export class Duel {
   constructor(character1, character2){
     this.characters = [character1, character2];
     this.winner = null;
+    this.turn = (Math.floor(Math.random() * this.characters.length));
   }
 
   attack(attackerName){
