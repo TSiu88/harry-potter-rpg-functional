@@ -3,7 +3,7 @@ export class Character {
     this.name = name;
     this.house = house;
     this.level = 1;
-    this.health = 3;
+    this.health = 2;
     this.spells = ["miss", "hit"];
     this.personality = this.assignPersonality();
   }
@@ -14,17 +14,32 @@ export class Character {
     let ravenclawTraits = ["intelligent", "wise", "creative", "quirky", "eccentric", "snobby", "independent"];
     let slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruthless", "exclusive", "respected"];
 
-    let num = (Math.round(Math.random() * 7));
+    let num = (Math.floor(Math.random() * gryffindorTraits.length));
 
     if (this.house === "gryffindor") {
-      return gryffindorTraits[num -1];
+      return gryffindorTraits[num];
     } else if (this.house === "hufflepuff") {
-      return hufflepuffTraits[num -1];
+      return hufflepuffTraits[num];
     } else if (this.house === "ravenclaw") {
-      return ravenclawTraits[num -1];
+      return ravenclawTraits[num];
     } else if (this.house === "slytherin") {
-      return slytherinTraits[num -1];
+      return slytherinTraits[num];
     }
   }
   
+  levelUp(){
+    this.level++;
+    this.health = 2 * this.level;
+  }
+
+  castSpell(){
+    let num = (Math.floor(Math.random() * this.spells.length));
+    console.log(num);
+    return this.spells[num];
+  }
+
+  takesDamage(hitAmount){
+    this.health -= hitAmount;
+  }
+
 }
