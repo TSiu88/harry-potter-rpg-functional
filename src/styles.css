@@ -3,27 +3,94 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid yellow;
+  min-width: 800px;
 }
 
 #duel-display {
   border: 1px solid red;
   width: 100%;
   min-height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#duel-status {
+  width: 300px;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character-img {
+  width: 150px;
+  height: 400px;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid blue;
+}
+
+.male {
+  background-image: url(../src/img/harry.png);
+}
+
+.female {
+  background-image: url(../src/img/hermione.png);
 }
 
 #bottom-display {
   width: 100%;
+  margin-top: 20px;
 }
 
-#character-creation {
+#character-creation, #attack-buttons {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 100%;
 }
 
+#stats-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#character1-details, #character2-details{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+}
+
+#buttons-between{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+  border: 1px solid green;
+}
+
+.stats, #character1-buttons, #character2-buttons{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid purple;
+}
+
+.stats p{
+  margin: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.btn {
+  margin: 10px;
 }
