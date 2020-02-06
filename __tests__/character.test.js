@@ -17,7 +17,7 @@ describe('Character', () => {
 
   test('should correcly assign one personality trait based on house', () => {
     let gryffindorTraits = ["brave", "determined", "stubborn", "self-righteous", "daring", "arrogant", "chivalrous"];
-    expect(gryffindorTraits).toContain(character.personality);
+    expect(gryffindorTraits).toContain(character.personality[0]);
   });
 
   test('should correctly decrease character\'s health by inputted damage amount', () => {
@@ -37,15 +37,29 @@ describe('Character', () => {
     expect(character.health).toEqual(4);
   });
 
+  test('should have a chance of adding a random trait on every third level level up', () => {
+    character.level = 2;
+    character.levelUp();
+    let expectedTraits = [1, 2];
+    expect(expectedTraits).toContain(character.personality.length);
+  });
+
   test('should correctly select random spell from character\'s spell list', () => {
     let spell = character.castSpell();
     expect(character.spells).toContain(spell);
   });
 
-  test('should return random strength value from 1 to current level', () => {
+  test('should return random strength value from 1 to current level if stronger that opponent', () => {
     character.level = 3;
     let expectedStrength = [1, 2, 3];
-    let strength = character.getStrength();
+    let strength = character.getStrength(false);
+    expect(expectedStrength).toContain(strength);
+  });
+
+  test('should return random strength value from 1 to 1+ current level if weaker than opponent', () => {
+    character.level = 3;
+    let expectedStrength = [1, 2, 3, 4];
+    let strength = character.getStrength(true);
     expect(expectedStrength).toContain(strength);
   });
 

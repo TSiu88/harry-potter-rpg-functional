@@ -17,8 +17,8 @@ function displayStats(character1, character2) {
   $("#character2-health-disp").text(character2.health);
   $("#character1-house-disp").text(character1.house);
   $("#character2-house-disp").text(character2.house);
-  $("#character1-personality-disp").text(character1.personality);
-  $("#character2-personality-disp").text(character2.personality);
+  $("#character1-personality-disp").text(character1.personality.join(", "));
+  $("#character2-personality-disp").text(character2.personality.join(", "));
 }
 
 function displayTurn(duel) {
@@ -40,7 +40,8 @@ function attackSequence(duel) {
   let spell = attacker.castSpell();
   duel.switchTurn();
   if (spell === "hit"){
-    let damage = attacker.getStrength();
+    let isWeaker = checkWeaker(attacker, defender);
+    let damage = attacker.getStrength(isWeaker);
     defender.takeDamage(damage);
     if (duel.checkForWinner(attacker, defender)){
       $("#attack-buttons").hide();
@@ -58,6 +59,13 @@ function attackSequence(duel) {
   } 
 }
 
+function checkWeaker(attacker, defender){
+  if (attacker.level < defender.level){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 $(document).ready(function(){
   $("#stats-display").hide();

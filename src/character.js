@@ -5,7 +5,7 @@ export class Character {
     this.level = 1;
     this.health = 2;
     this.spells = ["miss", "hit"];
-    this.personality = this.assignPersonality();
+    this.personality = [this.assignPersonality()];
   }
 
   assignPersonality() {
@@ -29,7 +29,20 @@ export class Character {
   
   levelUp(){
     this.level++;
+    if (this.level % 3 === 0){
+      this.addPersonality();
+    }
     this.resetHealth();
+  }
+
+  addPersonality(){
+    let houseTraits = `${this.house}Traits`;
+    if (this.personality.length < houseTraits.length){
+      let trait = this.assignPersonality();
+      if(!this.personality.includes(trait)){
+        this.personality.push(trait);
+      }
+    }
   }
 
   castSpell(){
@@ -45,8 +58,12 @@ export class Character {
     this.health = 2 * this.level;
   }
 
-  getStrength() {
-    let num = Math.floor(Math.random() * this.level) + 1;
+  getStrength(weaker) {
+    let useLevel = this.level;
+    if(weaker){
+      useLevel++;
+    }
+    let num = Math.floor(Math.random() * useLevel) + 1;
     return num;
   }
 }
