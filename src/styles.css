@@ -1,22 +1,43 @@
+/* 
+dark purple: #322248
+medium purple: #563E7C
+light purple: #CBBDE2
+gold: #FFE484 
+*/
+
+body{
+  background-color: #563E7C;
+  color: #CBBDE2;
+}
+
+h1 {
+  color: #FFE484;
+}
+
 .container {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid yellow;
   min-width: 800px;
+  background-color: #322248;
+  padding: 50px;
+  min-height: 1000px;
 }
 
 #duel-display {
-  border: 1px solid red;
   width: 100%;
   min-height: 400px;
   display: flex;
   justify-content: space-around;
+  background-image: url(../src/img/parchment.jpg);
+  border-radius: 30px;
+  box-shadow: 0 0 8px 8px #322248 inset;
+  color: #322248;
 }
 
 #duel-status {
   min-width: 400px;
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,7 +53,6 @@
   background-size: 150px;
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid blue;
 }
 
 .male {
@@ -67,7 +87,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+}
+
+#character1-details h5, #character2-details h5{
+  color:#FFE484 ;
 }
 
 #buttons-between{
@@ -76,13 +99,11 @@
   align-items: center;
   width: 50%;
   margin: 10px;
-  border: 1px solid green;
 }
 
 .stats, #character1-buttons, #character2-buttons{
   display: flex;
   flex-direction: column;
-  border: 1px solid purple;
 }
 
 .stats p{
@@ -97,4 +118,7 @@ form {
 
 .btn {
   margin: 10px;
+  background-color: #F5EACF;
+  font-size: 1.2em;
+  border-radius: 10px;
 }

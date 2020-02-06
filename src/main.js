@@ -23,7 +23,7 @@ function displayStats(character1, character2) {
 
 function displayTurn(duel) {
   let turnChar = duel.characters[duel.turn];
-  $("#duel-status").text(`${turnChar.name}'s Turn`);
+  $("#duel-status").append(`<p>${turnChar.name}'s Turn</p>`);
   if (turnChar === duel.characters[0]) {
     $("#character2-buttons button").attr("disabled", true);
     $("#character1-buttons button").attr("disabled", false);
@@ -45,15 +45,16 @@ function attackSequence(duel) {
     if (duel.checkForWinner(attacker, defender)){
       $("#attack-buttons").hide();
       $("#start-duel").show();
-      $("#duel-status").text(`${damage} damage`);
+      $("#duel-status").empty();
+      $("#duel-status").text(`${damage} damage!`);
       $("#duel-status").append(`<p>${attacker.name} Wins!</p>`);
     } else {
+      $("#duel-status").text(`${damage} damage!`);
       displayTurn(duel);
-      $("#duel-status").append(`<p> ${damage} damage</p>`);
     }
   } else {
+    $("#duel-status").text(`${spell}!`);
     displayTurn(duel);
-    $("#duel-status").append(`<p>${spell}!</p>`);
   } 
 }
 
@@ -88,6 +89,7 @@ $(document).ready(function(){
 
   $("#start-duel").click(function(event){
     event.preventDefault();
+    $("#duel-status").empty();
     $("#attack-buttons").show();
     $("#start-duel").hide();
     duel.resetDuel();
