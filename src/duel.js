@@ -5,17 +5,6 @@ export class Duel {
     this.turn = (Math.floor(Math.random() * this.characters.length));
   }
 
-  attack(attacker, defender){
-    let spell = attacker.castSpell();
-    if (spell === "hit"){
-      defender.takeDamage(attacker.level);
-      if (this.checkForWinner(attacker, defender)){
-        this.endDuel();
-      }
-    }
-    this.switchTurn();
-  }
-
   checkForWinner(attacker, defender){
     if (defender.health <= 0){
       this.winner = attacker;
