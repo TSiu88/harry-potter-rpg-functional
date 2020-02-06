@@ -33,6 +33,30 @@ function displayTurn(duel) {
   }
 }
 
+function attackSequence(duel) {
+  let attacker = duel.characters[duel.turn];
+  let defender;
+  attacker === duel.characters[0] ? defender = duel.characters[1] : defender = duel.characters[0];  
+  let spell = attacker.castSpell();
+  duel.switchTurn();
+  if (spell === "hit"){
+    let damage = attacker.getStrength();
+    defender.takeDamage(damage);
+    if (duel.checkForWinner(attacker, defender)){
+      $("#attack-buttons").hide();
+      $("#start-duel").show();
+      $("#duel-status").text(`${damage} damage`);
+      $("#duel-status").append(`<p>${attacker.name} Wins!</p>`);
+    } else {
+      displayTurn(duel);
+      $("#duel-status").append(`<p> ${damage} damage</p>`);
+    }
+  } else {
+    displayTurn(duel);
+    $("#duel-status").append(`<p>${spell}!</p>`);
+  } 
+}
+
 
 $(document).ready(function(){
   $("#stats-display").hide();
@@ -57,6 +81,7 @@ $(document).ready(function(){
     if (char1Name && char2Name) {
       character1 = new Character(char1Name, char1House);
       character2 = new Character(char2Name, char2House);
+      duel = new Duel(character1, character2);
       displayStats(character1, character2);
     }
   });
@@ -65,40 +90,24 @@ $(document).ready(function(){
     event.preventDefault();
     $("#attack-buttons").show();
     $("#start-duel").hide();
-    duel = new Duel(character1, character2);
+    duel.resetDuel();
     displayTurn(duel);
+    displayStats(character1, character2);
   });
 
   $(".attack-btn").click(function(event){
     event.preventDefault();
-    let attacker = duel.characters[duel.turn];
-    let defender;
-    attacker === character1 ? defender = character2 : defender = character1;  
-    let spell = attacker.castSpell();
-    duel.switchTurn();
-    if (spell === "hit"){
-      defender.takeDamage(attacker.level);
-      if (duel.checkForWinner(attacker, defender)){
-        duel.endDuel();
-        $("#attack-buttons").hide();
-        $("#start-duel").show();
-        $("#duel-status").text(`${attacker.name} Wins!`);
-      } else {
-        displayTurn(duel);
-        $("#duel-status").append(`<p>${spell}</p>`);
-      }
-    } else {
-      displayTurn(duel);
-      $("#duel-status").append(`<p>${spell}</p>`);
-    } 
+    attackSequence(duel);
     displayStats(character1, character2);
+  });
+
+  $(".flee-btn").click(function(event){
+    event.preventDefault();
+    displayTurn(duel);
+    $("#duel-status").append(`<p>Flee!</p>`);
+    $("#attack-buttons").hide();
+    $("#start-duel").show();
   });
 
 });
 
-
-///// NOTES
-// Reset stats after "start duel" button is clicked so you can see loser get to 0 health
-// Style the "hit" and "miss" display
-// Think on game theory about how easily the higher level person wins
-// Remove tests on "attack" method in duel class since we removed that

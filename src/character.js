@@ -44,4 +44,9 @@ export class Character {
   resetHealth(){
     this.health = 2 * this.level;
   }
+
+  getStrength() {
+    let num = Math.floor(Math.random() * this.level) + 1;
+    return num;
+  }
 }

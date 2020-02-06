@@ -35,7 +35,7 @@ describe('Duel', () => {
     character1.health = 0;
     character2.health = 1;
     duel.winner = character2;
-    duel.endDuel();
+    duel.resetDuel();
     expect(character1.health).toEqual(2);
     expect(character2.health).toEqual(4);
     expect(character2.level).toEqual(2);

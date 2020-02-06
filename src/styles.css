@@ -15,12 +15,15 @@
 }
 
 #duel-status {
-  width: 300px;
+  min-width: 400px;
   border: 1px solid green;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 3em;
+  font-size: 2em;
+  padding: 0 10px;
+  text-align: center;
 }
 
 .character-img {

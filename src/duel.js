@@ -18,7 +18,7 @@ export class Duel {
     this.winner = null;
   }
 
-  endDuel(){
+  resetDuel(){
     this.characters[0].resetHealth();
     this.characters[1].resetHealth();
     if (this.winner){

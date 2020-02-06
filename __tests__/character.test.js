@@ -42,4 +42,11 @@ describe('Character', () => {
     expect(character.spells).toContain(spell);
   });
 
+  test('should return random strength value from 1 to current level', () => {
+    character.level = 3;
+    let expectedStrength = [1, 2, 3];
+    let strength = character.getStrength();
+    expect(expectedStrength).toContain(strength);
+  });
+
 });
