@@ -2,13 +2,25 @@
 
 #### _Exercise in Jest Tests and Javascript Classes, 02.6.2020_
 
-
 #### By _**Tiffany Siu and Sasa Schwartz**_
+
+---
+## Table of Contents
+1. [Description](#description)
+2. [Setup/Installation Requirements](#setup/installation-requirements)
+    - [Requirements to Run](#requirements-to-run)
+    - [Instructions](#instructions)
+    - [Other Technologies Used](#other-technologies-used)
+3. [Screenshots](#screenshots)
+4. [Test Case Example](#test-case-example)
+5. [Known Bugs](#known-bugs)
+6. [Support and Contact Details](#support-and-contact-details)
+7. [License](#license)
+---
 
 ## Description
 
-_README under construction_
-<!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
+This program is a dueling program between two players.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.
 
 ## Setup/Installation Requirements
 
@@ -40,34 +52,6 @@ _README under construction_
 * _Webpack_
 * _Jest_
 * _Markdown_
-
-## Notable Features
-<!-- _features that make project stand out_ -->
-
-## Specifications
-
-<!-- * _List of features the program should do, from simplest to more complex, handling all possible cases.  Can do as text or put in table, with example input and output_
-  * _Example Input: expected input_
-  * _Example Output: expected output_
-* _Example: The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels._
-  * _Example Input: 3_
-  * _Example Output: 3_
-* _Example: The program adds "way" to single-letter words beginning with a vowel._
-  * _Example Input: i_
-  * _Example Output: iway_
-* _The program adds "way" to multi-letter words beginning with a vowel._
-  * _Example Input: open_
-  * _Example Output: openway_
-* _The program takes the single consonant from the beginning of the word and adds to the end with "ay"_
-  * _Example Input: latin_
-  * _Example Output: atinlay_
-* _The program takes all consecutive consonants from the beginning of the word and adds them to the end with "ay"_
-  * _Example Input: translator_
-  * _Example Output: anslatortray_
-* _The program takes beginning consonants and if it contains "q", also take the "u" after it and add them to the end with "ay"_
-  * _Example Input: squeal_
-  * _Example Output: ealsquay_
-* _Etc._ -->
 
 ## Screenshots
 
