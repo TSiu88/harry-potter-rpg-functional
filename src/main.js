@@ -19,6 +19,29 @@ function displayStats(character1, character2) {
   $("#character2-house-disp").text(character2.house);
   $("#character1-personality-disp").text(character1.personality.join(", "));
   $("#character2-personality-disp").text(character2.personality.join(", "));
+  $("#character1-inventory").text(character1.inventory.join(", "));
+  $("#character2-inventory").text(character2.inventory.join(", "));
+  displayItems(character1);
+  //displayItems("character2");
+}
+
+function displayItems(char) {
+  let select = document.getElementById("character1-items");
+  let options = char.inventory;
+  let dropdownList = [];
+  $("#character1-items option").each(function()
+  {
+    dropdownList.push((this).value);
+  });
+  for (let i = 0; i < options.length; i++) {
+    let opt = options[i];
+    if(!dropdownList.includes(opt)){
+      let el = document.createElement("option");
+      el.textContent = opt;
+      el.value = opt;
+      select.appendChild(el);
+    }
+  }
 }
 
 function displayTurn(duel) {
@@ -117,6 +140,10 @@ $(document).ready(function(){
     $("#duel-status").append(`<p>Flee!</p>`);
     $("#attack-buttons").hide();
     $("#start-duel").show();
+  });
+
+  $(".item-btn").click(function(event){
+    event.preventDefault();
   });
 
 });

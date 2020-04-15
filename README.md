@@ -2,7 +2,7 @@
 
 #### _Exercise in Refactoring Old Projects to Functional Programming, 04.15.2020_
 
-#### By _**Tiffany Siu, Adela Darmansyah, and Sasa Schwartz**_
+#### By _**Tiffany Siu, Adela Darmansyah, Michael Bradt, and Sasa Schwartz**_
 
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 ![LastCommit](https://img.shields.io/github/last-commit/tsiu88/harry-potter-rpg-functional)
@@ -112,10 +112,10 @@ _There are currently no known bugs in this program_
 
 ## Support and contact details
 
-_If there are any question or concerns please contact Tiffany [email](mailto:tsiu88@gmail.com) or Adela [email](mailto:adela.yohana@gmail.com). Thank you._
+_If there are any question or concerns please contact  [Tiffany](mailto:tsiu88@gmail.com), [Adela](mailto:adela.yohana@gmail.com), or [Miles](smbradtmichael@gmail.com). Thank you._
 
 ### License
 
 *This software is licensed under the MIT license*
 
-Copyright (c) 2020 **_Tiffany Siu, Adela Darmansyah, Sasa Schwartz_**
+Copyright (c) 2020 **_Tiffany Siu, Adela Darmansyah, Michael Bradt, Sasa Schwartz_**

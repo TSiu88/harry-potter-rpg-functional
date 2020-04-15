@@ -34,15 +34,28 @@ export class Character {
     if (this.level % 3 === 0){
       this.addPersonality();
     }
+    if (this.level % 1 === 0){
+      this.addToInventory();
+    }
     this.resetHealth();
   }
 
   addPersonality(){
     let houseTraits = eval(`${this.house}Traits`);
     if (this.personality.length < houseTraits.length){
-      let trait = assignPersonality(this.house);
+      let traitObject = assignPersonality(this.house);
+      let trait = eval(`traitObject.${this.house}()`);
       if(!this.personality.includes(trait)){
         this.personality.push(trait);
+      }
+    }
+  }
+
+  addToInventory(){
+    if (this.inventory.length < items.length){
+      let newItem = getItem();
+      if(!this.inventory.includes(newItem)){
+        this.inventory.push(newItem);
       }
     }
   }
@@ -77,13 +90,19 @@ const ravenclawTraits = ["intelligent", "wise", "creative", "quirky", "eccentric
 const slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruthless", "exclusive", "respected"];
 
 const assignPersonality = function(house) {
-  let num = (Math.floor(Math.random() * 7));
+  let traitsArray = eval(`${house}Traits`);
+  let num = (Math.floor(Math.random() * traitsArray.length));
   const obj = {
       [house]: function(){
-      return eval(`${house}Traits`)[num];
+      return traitsArray[num];
     }
   }
   return obj;
 }
 
-const items = ["feather", "red potion", "book"];
+const items = ["feather", "pepperup potion", "spellbook1", "spellbook2", "chocolate", "butterbeer"];
+
+const getItem = function() {
+  let num = (Math.floor(Math.random() * items.length));
+  return items[num];
+}
