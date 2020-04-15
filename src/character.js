@@ -5,7 +5,8 @@ export class Character {
     this.level = 1;
     this.health = 2;
     this.spells = ["miss", "hit"];
-    this.personality = [assignPersonality(house)];
+    const newChar = assignPersonality(house);
+    this.personality = [eval(`newChar.${house}()`)];
   }
 
   // assignPersonality() {
@@ -82,5 +83,3 @@ const assignPersonality = function(house) {
   }
   return obj;
 }
-const newChar = assignPersonality("gryffindor");
-newChar.gryffindor();
