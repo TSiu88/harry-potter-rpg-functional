@@ -17,7 +17,7 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(), 
     new HtmlWebpackPlugin({
-      title: 'Project Title',
+      title: 'Harry Potter RPG Duel',
       template: './src/index.html',
       inject: 'body'
     })

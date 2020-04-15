@@ -8,24 +8,24 @@ export class Character {
     this.personality = [this.assignPersonality()];
   }
 
-  assignPersonality() {
-    let gryffindorTraits = ["brave", "determined", "stubborn", "self-righteous", "daring", "arrogant", "chivalrous"];
-    let hufflepuffTraits = ["loyal", "fair", "kind", "modest", "dedicated", "boring", "meek"];
-    let ravenclawTraits = ["intelligent", "wise", "creative", "quirky", "eccentric", "snobby", "independent"];
-    let slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruthless", "exclusive", "respected"];
+  // assignPersonality() {
+  //   let gryffindorTraits = ["brave", "determined", "stubborn", "self-righteous", "daring", "arrogant", "chivalrous"];
+  //   let hufflepuffTraits = ["loyal", "fair", "kind", "modest", "dedicated", "boring", "meek"];
+  //   let ravenclawTraits = ["intelligent", "wise", "creative", "quirky", "eccentric", "snobby", "independent"];
+  //   let slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruthless", "exclusive", "respected"];
 
-    let num = (Math.floor(Math.random() * gryffindorTraits.length));
+  //   let num = (Math.floor(Math.random() * gryffindorTraits.length));
 
-    if (this.house === "gryffindor") {
-      return gryffindorTraits[num];
-    } else if (this.house === "hufflepuff") {
-      return hufflepuffTraits[num];
-    } else if (this.house === "ravenclaw") {
-      return ravenclawTraits[num];
-    } else if (this.house === "slytherin") {
-      return slytherinTraits[num];
-    }
-  }
+  //   if (this.house === "gryffindor") {
+  //     return gryffindorTraits[num];
+  //   } else if (this.house === "hufflepuff") {
+  //     return hufflepuffTraits[num];
+  //   } else if (this.house === "ravenclaw") {
+  //     return ravenclawTraits[num];
+  //   } else if (this.house === "slytherin") {
+  //     return slytherinTraits[num];
+  //   }
+  // }
   
   levelUp(){
     this.level++;
@@ -67,3 +67,20 @@ export class Character {
     return num;
   }
 }
+
+const gryffindorTraits = ["brave", "determined", "stubborn", "self-righteous", "daring", "arrogant", "chivalrous"];
+const hufflepuffTraits = ["loyal", "fair", "kind", "modest", "dedicated", "boring", "meek"];
+const ravenclawTraits = ["intelligent", "wise", "creative", "quirky", "eccentric", "snobby", "independent"];
+const slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruthless", "exclusive", "respected"];
+
+const assignPersonality = function(house) {
+  let num = (Math.floor(Math.random() * 7));
+  const obj = {
+      [house]: function(){
+      return eval(`${house}Traits`)[num];
+    }
+  }
+  return obj;
+}
+const newChar = assignPersonality("gryffindor");
+newChar.gryffindor();

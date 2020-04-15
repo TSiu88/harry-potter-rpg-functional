@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "harry-potter-rpg",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build": "webpack --mode development",
     "start": "npm run build&& webpack-dev-server --open --mode development",
@@ -11,7 +11,7 @@
     "debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tiffany Siu, Adela Darmansyah, Sasa Schwartz",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
