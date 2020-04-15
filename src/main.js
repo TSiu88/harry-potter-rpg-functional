@@ -21,15 +21,23 @@ function displayStats(character1, character2) {
   $("#character2-personality-disp").text(character2.personality.join(", "));
   $("#character1-inventory").text(character1.inventory.join(", "));
   $("#character2-inventory").text(character2.inventory.join(", "));
-  displayItems(character1);
-  //displayItems("character2");
+  displayItems(duel, character1);
+  displayItems(duel, character2);
 }
 
-function displayItems(char) {
-  let select = document.getElementById("character1-items");
+function displayItems(duel, char) {
+  let characterString;
+  if(duel.characters[0].name == char.name) {
+    characterString = "character1"
+  } else {
+    characterString = "character2"
+  }
+  // let variableToString = Object.keys(char)[0];
+  // console.log(variableToString);
+  let select = document.getElementById(`${characterString}-items`);
   let options = char.inventory;
   let dropdownList = [];
-  $("#character1-items option").each(function()
+  $(`${characterString}-items option`).each(function()
   {
     dropdownList.push((this).value);
   });

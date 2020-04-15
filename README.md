@@ -30,6 +30,12 @@
 
 This program is a dueling program between two players.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.
 
+#### TO DO
+- [ ] Fix name of DOM selector in main's function displayItems
+- [ ] Write functionality to use an item
+- [ ] Add different effects of different items
+- [ ] Add functionality to remove an item after using one from inventory list and select list
+
 ## Setup/Installation Requirements
 
 ### Requirements to Run

@@ -8,6 +8,7 @@ export class Character {
     const newChar = assignPersonality(house);
     this.personality = [eval(`newChar.${house}()`)];
     this.inventory = [];
+    this.player = "";
   }
 
   // assignPersonality() {
