@@ -7,6 +7,7 @@ export class Character {
     this.spells = ["miss", "hit"];
     const newChar = assignPersonality(house);
     this.personality = [eval(`newChar.${house}()`)];
+    this.inventory = [];
   }
 
   // assignPersonality() {
@@ -59,9 +60,10 @@ export class Character {
     this.health = 2 * this.level;
   }
 
-  getStrength(weaker) {
+  // Gives weaker character slight boost in attacking
+  calculateDamage(isWeaker) {
     let useLevel = this.level;
-    if(weaker){
+    if(isWeaker){
       useLevel++;
     }
     let num = Math.floor(Math.random() * useLevel) + 1;
@@ -83,3 +85,5 @@ const assignPersonality = function(house) {
   }
   return obj;
 }
+
+const items = ["feather", "red potion", "book"];

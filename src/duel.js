@@ -28,10 +28,6 @@ export class Duel {
   }
 
   switchTurn() {
-    if (this.turn === 0) {
-      this.turn = 1;
-    } else {
-      this.turn = 0;
-    }
+    this.turn === 0 ? this.turn = 1 :  this.turn = 0;
   }
 }

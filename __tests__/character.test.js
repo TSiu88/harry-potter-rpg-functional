@@ -52,14 +52,14 @@ describe('Character', () => {
   test('should return random strength value from 1 to current level if stronger that opponent', () => {
     character.level = 3;
     let expectedStrength = [1, 2, 3];
-    let strength = character.getStrength(false);
+    let strength = character.calculateDamage(false);
     expect(expectedStrength).toContain(strength);
   });
 
   test('should return random strength value from 1 to 1+ current level if weaker than opponent', () => {
     character.level = 3;
     let expectedStrength = [1, 2, 3, 4];
-    let strength = character.getStrength(true);
+    let strength = character.calculateDamage(true);
     expect(expectedStrength).toContain(strength);
   });
 

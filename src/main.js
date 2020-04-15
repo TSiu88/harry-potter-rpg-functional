@@ -41,7 +41,7 @@ function attackSequence(duel) {
   duel.switchTurn();
   if (spell === "hit"){
     let isWeaker = checkWeaker(attacker, defender);
-    let damage = attacker.getStrength(isWeaker);
+    let damage = attacker.calculateDamage(isWeaker);
     defender.takeDamage(damage);
     if (duel.checkForWinner(attacker, defender)){
       $("#attack-buttons").hide();
@@ -62,7 +62,7 @@ function attackSequence(duel) {
 function checkWeaker(attacker, defender){
   if (attacker.level < defender.level){
     return true;
-  }else{
+  } else{
     return false;
   }
 }
