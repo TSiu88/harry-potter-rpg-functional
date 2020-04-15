@@ -5,7 +5,7 @@ export class Character {
     this.level = 1;
     this.health = 2;
     this.spells = ["miss", "hit"];
-    this.personality = [this.assignPersonality()];
+    this.personality = [assignPersonality(house)];
   }
 
   // assignPersonality() {
@@ -36,9 +36,9 @@ export class Character {
   }
 
   addPersonality(){
-    let houseTraits = `${this.house}Traits`;
+    let houseTraits = eval(`${this.house}Traits`);
     if (this.personality.length < houseTraits.length){
-      let trait = this.assignPersonality();
+      let trait = assignPersonality(this.house);
       if(!this.personality.includes(trait)){
         this.personality.push(trait);
       }
