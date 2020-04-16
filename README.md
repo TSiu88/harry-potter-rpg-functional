@@ -35,7 +35,7 @@ Made with [contributors-img](https://contributors-img.web.app). -->
 
 ## Description
 
-This program is refactoring of a previously created dueling program between two players using functional programming techniques.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.
+This program is a refactoring of a previously created Harry Potter themed dueling program between two players using functional programming techniques.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.
 
 #### TO DO
 - [ ] Fix name of DOM selector in main's function displayItems
