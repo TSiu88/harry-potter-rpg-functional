@@ -38,12 +38,15 @@ const changePersonalityState = (house) => {
   let traitsArray = eval(`${house.toLowerCase()}Traits`);
   let num = (Math.floor(Math.random() * traitsArray.length));
   let newTrait = traitsArray[num];
+  let array = [];
   let newArray = [];
   return (state) => { 
-    let array = state["personality"];
+    array = state["personality"];
     if (!state["personality"].includes(newTrait)) {
       array.forEach(el => newArray = newArray.push(el));
-      newArray.push(newTrait);
+      newArray = [...array, newTrait];
+    } else {
+      newArray = [...array];
     }
     return ({
       ...state,
@@ -83,5 +86,9 @@ const newTraitPlayer1 = player1(assignPersonality1);
 const assignPersonality2 = changePersonalityState(houseName2);
 const newTraitPlayer2 = player2(assignPersonality2);
 
+const assignPersonality3 = changePersonalityState(houseName1);
+const newTraitPlayer1Again = player1(assignPersonality3);
+
 console.log(newTraitPlayer1);
 console.log(newTraitPlayer2);
+console.log(newTraitPlayer1Again);
