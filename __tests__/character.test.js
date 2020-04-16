@@ -44,6 +44,13 @@ describe('Character', () => {
     expect(expectedTraits).toContain(character.personality.length);
   });
 
+  test('should have a chance of adding a random item on every fifth level level up', () => {
+    character.level = 9;
+    character.levelUp();
+    let expectedInventoryLength = [1, 2];
+    expect(expectedInventoryLength).toContain(character.inventory.length);
+  });
+
   test('should correctly select random spell from character\'s spell list', () => {
     let spell = character.castSpell();
     expect(character.spells).toContain(spell);
