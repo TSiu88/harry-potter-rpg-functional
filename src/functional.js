@@ -56,6 +56,37 @@ const changePersonalityState = (house) => {
   }
 }
 
+const items = ["feather", "pepperup potion", "spellbook1", "spellbook2", "chocolate", "butterbeer"];
+
+const changeInventoryState = () => {
+  let num = (Math.floor(Math.random() * items.length));
+  let newItem =  items[num];
+  let array = [];
+  let newArray = [];
+  return (state) => {
+    array = state["inventory"];
+    if (!state["inventory"].includes(newItem)) {
+      array.forEach(el => newArray = newArray.push(el));
+      newArray = [...array, newItem];
+    } else {
+      newArray = [...array];
+    }
+    return ({
+      ...state,
+      ["inventory"]: newArray
+    }) 
+  }
+}
+
+// FUNCTIONS
+let hitDamage;
+const changeHealth = changeNumberState("health");
+const takeDamage = changeHealth(-1*hitDamage);
+const player1Damaged = player1(takeDamage);
+
+
+
+const levelUp = changeNumberState("level")(1);
 
 // CONNECT TO UI
 let userName1 = "Harry";
@@ -92,3 +123,17 @@ const newTraitPlayer1Again = player1(assignPersonality3);
 console.log(newTraitPlayer1);
 console.log(newTraitPlayer2);
 console.log(newTraitPlayer1Again);
+
+// TESTING adding items
+const getItem1 = changeInventoryState();
+const newItemPlayer1 = player1(getItem1);
+
+const getItem2 = changeInventoryState();
+const newItemPlayer2 = player2(getItem2);
+
+const getAnotherItem1 = changeInventoryState();
+const newItemPlayer1Again = player1(getAnotherItem1);
+
+console.log(newItemPlayer1);
+console.log(newItemPlayer2);
+console.log(newItemPlayer1Again);
