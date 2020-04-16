@@ -36,31 +36,21 @@ const slytherinTraits = ["cunning", "ambitious", "resourceful", "elitist", "ruth
 
 const changePersonalityState = (house) => {
   let traitsArray = eval(`${house.toLowerCase()}Traits`);
-  console.log(traitsArray);
   let num = (Math.floor(Math.random() * traitsArray.length));
-  console.log(num);
   let newTrait = traitsArray[num];
-  let newArray = new Array(newTrait);
-  console.log(newTrait);
-  //let newArray = (array) => array.includes(newTrait) ? array : array.push(newTrait);
-  return (state) => ({
-    ...state,
-    house,
-    ["personality"]: () => {  
-      if (!state["personality"].includes(newTrait)) {
-        state["personality"].push(newTrait);
-        console.log("newTrait =" + newTrait);
-        console.log(state["personality"]);
-      }
-      
+  let newArray = [];
+  return (state) => { 
+    let array = state["personality"];
+    if (!state["personality"].includes(newTrait)) {
+      array.forEach(el => newArray = newArray.push(el));
+      newArray.push(newTrait);
     }
-
-    // ["personality"]: (state["personality"].includes(newTrait)) ? (state["personality"]) : (state["personality"].push(newTrait))
-
-    //["personality"]: array => array.includes(newTrait) ? array : array.push(newTrait)
-
-    // ["personality"]: newArray
-  })
+    return ({
+      ...state,
+      house,
+      ["personality"]: newArray
+    }) 
+  }
 }
 
 
@@ -87,11 +77,11 @@ const newName2 = assignName2(userName2);
 const assignedNamePlayer2 = player2(newName2);
 
 // Assign House & Personality Traits
-
 const assignPersonality1 = changePersonalityState(houseName1);
-// const assignedTraitPlayer1 = assignPersonality1(player1);
 const newTraitPlayer1 = player1(assignPersonality1);
-const test = newTraitPlayer1.personality;
-const consoleTest = test();
+
+const assignPersonality2 = changePersonalityState(houseName2);
+const newTraitPlayer2 = player2(assignPersonality2);
 
 console.log(newTraitPlayer1);
+console.log(newTraitPlayer2);
