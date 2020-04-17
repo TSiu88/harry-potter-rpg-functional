@@ -34,6 +34,7 @@ function displayItems(char) {
   // }
   // let variableToString = Object.keys(char)[0];
   // console.log(variableToString);
+  // TODO: char not correct, need to get which character name
   let select = document.getElementById(`${char}-items`);
   let options = char.inventory;
   let dropdownList = [];

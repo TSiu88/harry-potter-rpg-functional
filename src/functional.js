@@ -78,15 +78,42 @@ const changeInventoryState = () => {
   }
 }
 
-// FUNCTIONS
+// FUNCTIONS - UNTESTED
+// Missing: castSpell, calculateDamage
 let hitDamage;
 const changeHealth = changeNumberState("health");
 const takeDamage = changeHealth(-1*hitDamage);
 const player1Damaged = player1(takeDamage);
 
+const resetHealth = () => {
+  let maxHealth;
+  return (state) => {
+    maxHealth = state["level"] * 2;
+    return ({
+      ...state,
+      ["health"]: maxHealth
+    })
+  }
+}
 
-
-const levelUp = changeNumberState("level")(1);
+const increaseLevel = changeNumberState("level")(1);
+const levelUp = () => {
+  return (state) => {
+    state.increaseLevel;
+    if (state.level % 3 == 0)
+    {
+      state.changePersonalityState(state.house);
+    }
+    if (state.level % 5 == 0)
+    {
+      state.changeInventoryState();
+    }
+    resetHealth;
+    return ({
+      ...state
+    })
+  }
+}
 
 // CONNECT TO UI
 let userName1 = "Harry";
@@ -124,7 +151,7 @@ console.log(newTraitPlayer1);
 console.log(newTraitPlayer2);
 console.log(newTraitPlayer1Again);
 
-// TESTING adding items
+// TEST Add Items
 const getItem1 = changeInventoryState();
 const newItemPlayer1 = player1(getItem1);
 

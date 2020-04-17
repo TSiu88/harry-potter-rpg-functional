@@ -35,9 +35,15 @@ Made with [contributors-img](https://contributors-img.web.app). -->
 
 ## Description
 
-This program is a refactoring of a previously created Harry Potter themed dueling program between two players using functional programming techniques.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.
+This program is a refactoring of a previously created Harry Potter themed dueling program between two players using functional programming techniques.  There is some randomization in how much damage is done and with each win the amount of damage and random traits received increases.  Game continues until someone gives up or out of health.  Refactoring is in a separate file and not fully implemented with the UI
 
-#### TO DO
+#### Functional Programming TO DO
+- [ ] Write functions for castSpell and calculateDamage from Character.js
+- [ ] Test functions to ensure working
+- [ ] Refactor Duel.js to be functional
+- [ ] Connect program UI to functional programming with jquery
+
+#### UI TO DO
 - [ ] Fix name of DOM selector in main's function displayItems
 - [ ] Write functionality to use an item
 - [ ] Add different effects of different items
@@ -117,7 +123,11 @@ _Some example tests:_
 
 ## Known Bugs
 
-_There are currently no known bugs in this program_
+- The functional programming code is mostly not connected to the UI actually used
+- The items do not do anything but add to characters
+- UI elements for inventory not functional
+- The functional programming is not complete or tested in functional.js
+- The functional programming is not done for duel.js, main.js, etc.
 
 ## Support and contact details
 

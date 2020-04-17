@@ -34,7 +34,7 @@ export class Character {
     if (this.level % 3 === 0){
       this.addPersonality();
     }
-    if (this.level % 1 === 0){
+    if (this.level % 5 === 0){
       this.addToInventory();
     }
     this.resetHealth();
